@@ -166,14 +166,23 @@ li {
   font-family: 'Work Sans', sans-serif;
   font-size: 18px;
 }
+.carousel-item.active{
+  margin-bottom: 50px;
+}
+.d-block{ 
+  transform: translateY(-0.5%);
+  /* transform: translateY(-0.5%); */
+  -webkit-box-shadow: 17px 17px 7px gray;
+  border: 2px solid black;
+}
 
+/*Timeline start*/
 .timeline-title{
   color: black;
   font-family: 'Work Sans', monospace;
   margin-bottom: 100px;
-  margin-top: -80px;
+  margin-top: -90px;
 }
-/*Timeline start*/
 .fa-check-circle{
   margin-bottom: 4%;
 }
