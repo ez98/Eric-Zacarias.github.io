@@ -169,8 +169,9 @@ li {
 
 .timeline-title{
   color: black;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Work Sans', monospace;
   margin-bottom: 100px;
+  margin-top: -80px;
 }
 /*Timeline start*/
 .fa-check-circle{
@@ -180,7 +181,7 @@ li {
   display:inline-block;
   width:100%;
   overflow-y:auto;
-  padding-top: 50px;
+  padding-top: 105px;
   margin-top: -80px;
   margin-bottom: 120px;
 }
