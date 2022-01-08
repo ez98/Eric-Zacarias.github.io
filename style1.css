@@ -377,6 +377,84 @@ li {
 }
 /*Timeline end*/
 
+/*INVOLVEMENT*/
+.card{
+  text-align: center;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  margin-top: 150px;
+  box-shadow: 20px 20px 15px #aaaaaa;
+  margin-left: auto;
+  margin-right: 150px;
+}
+
+.card-img-top {
+  margin-bottom: 50px;
+  border-bottom: 0.1px solid black;
+  display: block;
+  border-bottom: 1px solid gray;
+}
+.card-title, .card-text{
+  font-family: 'Oswald', sans-serif;
+}
+
+
+.col-md-12.col-lg-4.involvement, .col-md-12.col-lg-4.projects{
+  padding-top: 2.5%;
+  padding-bottom: 4%; 
+  margin-right: 0 auto;
+}
+.involvement{
+  margin-right: auto;
+}
+.ala{
+  margin-top: 50px;
+}
+.col-md-12.col-lg-4.involvement:last-child{
+  padding-bottom: 5%;
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .col-md-12.col-lg-4.involvement, .col-md-12.col-lg-4.projects{
+    padding: 2.5% 20% 0 20%;
+  }
+}
+@media (max-width: 767px){
+  .col-md-12.col-lg-4.involvement, .col-md-12.col-lg-4.projects{
+    padding: 2.5% 7% 0 7%;  
+  }
+}
+@media (min-width: 992px){
+  .align-fix{
+    margin-top: 32px;
+  }
+  .align-fix2{
+    margin-top: 32px;
+  }
+}
+
+.modal-header{
+  font-family: 'Oswald', sans-serif;
+}
+.modal-body{
+  font-family: 'Work Sans', sans-serif;
+  text-indent: 40px;
+  text-align: justify;
+}
+#modal-scroll{
+  overflow-y: initial !important;
+}
+#modal-scroll-body, .modal-body{
+  max-height: 500px; 
+  overflow-y: auto;
+}
+button{
+  font-family: 'Work Sans', sans-serif;
+}
+.btn-secondary{
+  background-color: #FF605C;
+}
+
 /* FOOTER */
 #footer {
   width: 100%;
@@ -388,3 +466,4 @@ li {
 #contact {
   font-family: 'Open Sans', monospace;
   }
+
