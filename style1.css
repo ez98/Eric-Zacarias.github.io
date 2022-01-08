@@ -395,8 +395,8 @@ li {
   display: block;
   border-bottom: 1px solid gray;
 }
-.card-title, .card-text{
-  font-family: 'Oswald', sans-serif;
+.card-title, .card-text, .card-subtitle{
+  font-family: 'Oswald', monospace;
 }
 
 
@@ -410,6 +410,7 @@ li {
 }
 .ala{
   margin-top: 50px;
+  margin-bottom: 150px;
 }
 .col-md-12.col-lg-4.involvement:last-child{
   padding-bottom: 5%;
