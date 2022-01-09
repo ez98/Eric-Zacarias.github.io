@@ -96,6 +96,7 @@ li:hover {
   font-family: 'Open Sans', monospace;
 
 }
+
 /*Name, School, Major Fade In*/
 #container {
   -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
@@ -134,6 +135,45 @@ li:hover {
   to   { opacity: 1; }
 }
 /**********************************/
+/*Projects.html*/
+.btnprj {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+@media (max-width: 576px) {
+  .card-img-top-proj {
+    width: 100%;
+    height: 50vw;
+    object-fit: cover;
+  }
+}
+@media (max-width: 991px) and  (min-width: 576px){
+  .card-img-top-proj {
+    width: 100%;
+    height: 35vw;
+    object-fit: cover;
+  }
+}
+@media (min-width: 992px){
+  .card-img-top-proj {
+    width: 100%;
+    height: 25vw;
+    object-fit: cover;
+  }
+  .card-small {
+    width: 25vw;
+    margin: 0 auto;
+  }
+}
+.project-desktop{
+  padding-bottom: 2%;
+}
+.col-lg-4.projects.d-flex.align-items-stretch{
+  padding-bottom: 8rem;
+}
+/***********************/
+
 /* FOOTER */
 #footer {
   width: 100%;
