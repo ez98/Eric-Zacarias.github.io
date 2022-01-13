@@ -1,1 +1,1 @@
-Check it out! www.ericzacarias.tech
+Check it out! https://www.ericzacarias.tech/
