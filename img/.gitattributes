@@ -1,3 +1,4 @@
 flying-over.mp4 filter=lfs diff=lfs merge=lfs -text
 My[[:space:]]Movie.mp4 filter=lfs diff=lfs merge=lfs -text
 MyMovie2.mp4 filter=lfs diff=lfs merge=lfs -text
+My[[:space:]]Movie.webm filter=lfs diff=lfs merge=lfs -text
