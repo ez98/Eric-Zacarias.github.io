@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
 
 /*---Media Queries --*/
 @media (max-width: 992px) {
@@ -37,7 +38,7 @@
   background-size: cover;
 } */
 
-#sunrise{
+#flyover{
   width: 100vw;
   height: 100vh;
   object-fit: cover;
@@ -101,7 +102,7 @@ li:hover {
 /* For Name, School and Major*/
 
 .major{
-  font-family: 'Open Sans', monospace;
+  font-family: 'Source Code Pro', monospace;
   font-size: 50px;
   color: white;
   padding-top: 2%;
@@ -114,7 +115,7 @@ li:hover {
   color:white;
   padding-top: 5%;
   padding-bottom: 0%;
-  font-family: 'Open Sans', monospace;
+  font-family: 'Source Code Pro', monospace;
 
 }
 
