@@ -41,13 +41,26 @@
   z-index: -1;
 }
 
+.projects-bg {
+  background-image: url(img/background.jpg);
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
 /* @media (min-width: 751px) { */
+  .text-center.align-self-center{
+    margin: 200 200 200 200;
+  }
   .name {   
     font-size: 90px;
     color:white;
     padding-top: 5%;
     padding-bottom: 0%;
     font-family: 'Source Code Pro', monospace; 
+    margin-bottom: 15px;
 
   }
   .major{
@@ -57,10 +70,11 @@
     padding-top: 2%;
     padding-bottom: 0%;
     margin: 0;
+    margin-top: -10px;
   }
   .img-fluid {
     height: auto;
-    width: 45%;
+    width: 35%;
   }
   .wrapper {
     display: flex;
@@ -154,7 +168,7 @@
   }
   .img-fluid {
     height: auto;
-    width: 90%;
+    width: 80%;
   }
   #footer {
     width: 100%;
@@ -184,25 +198,6 @@
 }
 /**********************************/
 
-/* For Name, School and Major*/
-
-/* .major{
-  font-family: 'Source Code Pro', monospace;
-  font-size: 50px;
-  color: white;
-  padding-top: 2%;
-  padding-bottom: 0%;
-  margin: 0;
-}
-
-.name{
-  font-size: 65px;
-  color:white;
-  padding-top: 5%;
-  padding-bottom: 0%;
-  font-family: 'Source Code Pro', monospace;
-
-} */
 
 /*Name, School, Major Fade In*/
 #container {
