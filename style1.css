@@ -517,4 +517,10 @@ button{
       display: inline-block;
       margin-bottom: 6.5em;
     }
+    .title-h1{
+      font-family: 'Work Sans', monospace;
+      color: black;
+      font-size: 25px;
+      font-weight: bold;
+    }
   }
