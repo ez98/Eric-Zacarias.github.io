@@ -52,7 +52,7 @@
 
 /* @media (min-width: 751px) { */
   .text-center.align-self-center{
-    margin: 200px 200px 200px 200px;
+    margin: 200px auto 200px auto;
   }
   .name {   
     font-size: 90px;
