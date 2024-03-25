@@ -1,4 +1,4 @@
 #!/bin/bash
 
-
-echo "My secret in Bash script: $1"
+API_TOKEN=$1
+echo "My secret in Bash script: $API_TOKEN"
