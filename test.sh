@@ -2,9 +2,10 @@
 
 API_TOKEN=$1
 
-URL="https://github.com/ez98/Eric-Zacarias.github.io"
+URL="https://api.github.com/repos/OWNER/REPO/commits"
 HEADER1="Accept: application/vnd.github+json"
 HEADER2="Authorization: Bearer $API_TOKEN"
-I
-curl --request GET --url "$URL" --header "$HEADER1" --header "$HEADER2"
+HEADER3="X-GitHub-Api-Version: 2022-11-28"
+
+curl -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL
 
