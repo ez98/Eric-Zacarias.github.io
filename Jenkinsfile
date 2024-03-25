@@ -11,9 +11,12 @@ pipeline {
         stage('Build') {
             steps{
                 echo "====Checking For Changes===="
-                sh 'cd /home/jenkins/workspace/github-test'
-                // sh 'chmod +x /home/jenkins/workspace/github-test/test.sh'
-                sh '/home/jenkins/workspace/github-test/test.sh'
+                sh """
+                    cd /home/jenkins/workspace/github-test
+                    chmod +x /home/jenkins/workspace/github-test/test.sh
+                    /home/jenkins/workspace/github-test/test.sh
+                """
+
             }
         }
 
