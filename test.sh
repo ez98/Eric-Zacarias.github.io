@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-echo "HELLO WORLD"
+curl --version
