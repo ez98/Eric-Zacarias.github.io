@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-curl --version
+echo "My secret in Bash script: $1"

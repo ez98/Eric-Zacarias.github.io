@@ -11,15 +11,12 @@ pipeline {
         stage('Build') {
             steps{
                 echo "====Checking For Changes===="
-                sh """
-                    cd /home/jenkins/workspace/github-test
-                    chmod +x /home/jenkins/workspace/github-test/test.sh
-                    /home/jenkins/workspace/github-test/test.sh
-                """
+
                 withCredentials([string(credentialsId: 'API_TOKEN', variable: 'TOKEN')])
                 {
                     sh '''
-                        echo "My secret: ${TOKEN}"
+                        chmod +x /home/jenkins/workspace/github-test/test.sh
+                        /home/jenkins/workspace/github-test/test.sh $TOKEN
                     '''
                 }
             }
