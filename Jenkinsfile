@@ -12,7 +12,7 @@ pipeline {
             steps{
                 echo "====Checking For Changes===="
                 sh 'cd /home/jenkins/workspace/github-test'
-                sh 'ls'
+                sh 'chmod +x /home/jenkins/workspace/github-test/test.sh'
                 sh '/home/jenkins/workspace/github-test/test.sh'
             }
         }
