@@ -13,7 +13,7 @@ pipeline {
                 echo "====Checking For Changes===="
                 sh 'cd /home/jenkins/workspace/github-test'
                 sh 'ls'
-                sh 'test.sh'
+                sh '/home/jenkins/workspace/github-test/test.sh'
             }
         }
 
