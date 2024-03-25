@@ -16,8 +16,12 @@ pipeline {
                     chmod +x /home/jenkins/workspace/github-test/test.sh
                     /home/jenkins/workspace/github-test/test.sh
                 """
-
-            }
+                withCredentials([string(credentialsId: 'API_TOKEN', variable: 'TOKEN')]) 
+                {
+                    sh '''
+                        echo "My secret: ${TOKEN}"
+                    '''
+                }
         }
 
         stage('Deliver') {
