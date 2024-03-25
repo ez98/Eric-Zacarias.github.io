@@ -11,6 +11,7 @@ pipeline {
         stage('Build') {
             steps{
                 echo "====Checking For Changes===="
+                pwd
                 sh 'test.sh'
             }
         }
