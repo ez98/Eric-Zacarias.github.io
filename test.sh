@@ -1,7 +1,6 @@
 #!/bin/bash
 
 API_TOKEN=$1
-ls
 MARKDOWN=`cat /home/jenkins/workspace/github-test/README.md`
 URL="https://api.github.com/repos/ez98/Eric-Zacarias.github.io/commits"
 HEADER1="Accept: application/vnd.github+json"
@@ -24,7 +23,8 @@ COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq -r '.html_url'`
 
 MARKDOWN_LINE="| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | [View Changes](${COMMIT_CHANGES_URL}) |"
 
-echo $MARKDOWN
+
+git --version
 
 
 
