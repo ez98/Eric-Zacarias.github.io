@@ -16,5 +16,5 @@ DATE=`echo $COMMIT | jq '.author.date'`
 MESSAGE=`echo $COMMIT | jq '.message'`
 COMMIT_API_URL=`echo $COMMIT | jq -r '.url'`
 COMMIT_CURL_RESPONSE=$(curl -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $COMMIT_API_URL)
-
+echo $COMMIT_CURL_RESPONSE  
 # test new agent with jq installed
