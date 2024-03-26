@@ -8,10 +8,9 @@ pipeline {
         pollSCM 'H/5 * * * *'
     }
     stages {
-        stage('Build') {
-            steps{
-                echo "====Checking For Changes===="
-
+        stage('Git') {
+            steps {
+                echo "====Setting Up Git===="
                 withCredentials([usernamePassword(credentialsId: 'GITHUB_PAT', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) 
                 {
                     sh '''
@@ -21,7 +20,11 @@ pipeline {
                         git checkout -b main
                     '''
                 }
-
+            }
+        }
+        stage('Build') {
+            steps{
+                echo "====Running Changelog Automation Script===="   
                 withCredentials([string(credentialsId: 'API_TOKEN', variable: 'TOKEN')])
                 {
                     sh '''
@@ -29,16 +32,6 @@ pipeline {
                         /home/jenkins/workspace/github-test/test.sh $TOKEN
                     '''
                 }
-
-                // withCredentials([string(credentialsId: 'API_TOKEN', variable: 'TOKEN')])
-                // {
-                //     sh '''
-                //         chmod +x /home/jenkins/workspace/github-test/test.sh
-                //         /home/jenkins/workspace/github-test/test.sh $TOKENcan 
-                //     '''
-                // }
-
-
             }
         }
 
