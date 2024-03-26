@@ -19,9 +19,9 @@ MESSAGE=`echo $COMMIT | jq -r '.message'`
 COMMIT_API_URL=`echo $COMMIT | jq -r '.url'`
 COMMIT_CURL_RESPONSE=$(curl -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $COMMIT_API_URL)
 
-COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq '.html_url'`
+COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq -r '.html_url'`
 
-MARKDOWN="| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | ${COMMIT_CHANGES_URL} |"
+MARKDOWN="| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | [View Changes](${COMMIT_CHANGES_URL}) |"
 
 echo $MARKDOWN
 # test new agent with jq installed
