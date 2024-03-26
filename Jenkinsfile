@@ -17,6 +17,7 @@ pipeline {
                     sh '''
                     git config --global user.name "${GIT_USERNAME}"
                     git config --global user.password "${GIT_PASSWORD}"
+                    git config --global user.email "ericzacarias80@gmail.com"
                     git add test.sh
                     git commit -m "test commit"
                     git push --set-upstream origin main
