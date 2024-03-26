@@ -12,7 +12,7 @@ COMMIT=`echo $RESPONSE | jq '.[0].commit'`
 
 NAME=`echo $COMMIT | jq -r '.author.name'`
 EMAIL=`echo $COMMIT | jq -r '.author.email'`
-DATE=`echo $COMMIT | jq -r '.author.date'`
+DATE=`echo $COMMIT | jq '.author.date'`
 DATE=`echo $DATE | jq -r 'strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y-%m-%d")'`
 MESSAGE=`echo $COMMIT | jq -r '.message'`
 
