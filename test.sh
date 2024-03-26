@@ -39,5 +39,5 @@ git remote set-url origin https://ez98:${GIT_PAT}@github.com/ez98/Eric-Zacarias.
 
 git add README.md
 git commit -m "add readme"
-git push origin HEAD:Eric-Zacarias.github.io
+git push -u origin main
 # update README.md
