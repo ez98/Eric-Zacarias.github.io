@@ -18,7 +18,7 @@ pipeline {
                     git config --global user.name "${GIT_USERNAME}"
                     git config --global user.password "${GIT_PASSWORD}"
                     git config --global user.email "ericzacarias80@gmail.com"
-                    git remote set-url origin https://ez98:${GIT_PAT}@github.com/ez98/Eric-Zacarias.github.io.git
+                    git remote set-url origin https://ez98:${GIT_PASSWORD}@github.com/ez98/Eric-Zacarias.github.io.git
                     git checkout -b main
                     '''
                     withCredentials([string(credentialsId: 'API_TOKEN', variable: 'TOKEN')])
