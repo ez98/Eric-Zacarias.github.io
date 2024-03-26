@@ -28,8 +28,9 @@ echo -e $MARKDOWN_LINE >> /home/jenkins/workspace/github-test/README.md
 
 cat /home/jenkins/workspace/github-test/README.md
 
+git config --global user.email "ericzacarias80@gmail.com"
+git config --global user.name "ez98"
 git add README.md
 git commit -m "add readme"
-git push
-
+git push origin HEAD:Eric-Zacarias.github.io
 # update README.md
