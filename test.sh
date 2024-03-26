@@ -1,7 +1,8 @@
 #!/bin/bash
 
 API_TOKEN=$1
-MARKDOWN=`cat /home/jenkins/workspace/github-test/README.MD`
+ls
+MARKDOWN=`cat /home/jenkins/workspace/github-test/README.md`
 URL="https://api.github.com/repos/ez98/Eric-Zacarias.github.io/commits"
 HEADER1="Accept: application/vnd.github+json"
 HEADER2="Authorization: Bearer $API_TOKEN"
