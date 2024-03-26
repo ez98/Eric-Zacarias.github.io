@@ -23,7 +23,7 @@ COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq -r '.html_url'`
 
 MARKDOWN_LINE="| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | [View Changes](${COMMIT_CHANGES_URL}) |"
 
-curl -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $MARKDOWN_URL
+curl $MARKDOWN_URL
 
 
 
