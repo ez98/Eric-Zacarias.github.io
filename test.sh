@@ -7,7 +7,7 @@ HEADER1="Accept: application/vnd.github+json"
 HEADER2="Authorization: Bearer $API_TOKEN"
 HEADER3="X-GitHub-Api-Version: 2022-11-28"
 
-RESPONSE=$(curl --silent -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
+RESPONSE=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
 COMMIT=`echo $RESPONSE | jq '.[0].commit'`
 
 NAME=`echo $COMMIT | jq -r '.author.name'`
@@ -17,7 +17,7 @@ DATE=`echo $DATE | jq -r 'strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y-%m-%d")'
 MESSAGE=`echo $COMMIT | jq -r '.message'`
 
 COMMIT_API_URL=`echo $COMMIT | jq -r '.url'`
-COMMIT_CURL_RESPONSE=$(curl -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $COMMIT_API_URL)
+COMMIT_CURL_RESPONSE=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $COMMIT_API_URL)
 
 COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq -r '.html_url'`
 
