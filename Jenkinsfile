@@ -15,7 +15,9 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'GITHUB_PAT', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) 
                 {
                     sh '''
-                        git remote set-url origin https://ez98:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Eric-Zacarias.github.io.git
+                        git config --global user.name "${GIT_USERNAME}"
+                        git config --global user.email "ericzacarias80@gmail.com"
+                        git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Eric-Zacarias.github.io.git
                         git checkout -b main
                     '''
                 }
