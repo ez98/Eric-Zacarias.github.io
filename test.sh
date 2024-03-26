@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API_TOKEN=$1
-MARKDOWN_URL="https://api.github.com/repos/ez98/Eric-Zacarias.github.io/README.md"
+MARKDOWN_URL="https://https://raw.githubusercontent.com/ez98/Eric-Zacarias.github.io/main/README.md"
 URL="https://api.github.com/repos/ez98/Eric-Zacarias.github.io/commits"
 HEADER1="Accept: application/vnd.github+json"
 HEADER2="Authorization: Bearer $API_TOKEN"
