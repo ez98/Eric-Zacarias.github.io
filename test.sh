@@ -9,3 +9,4 @@ HEADER3="X-GitHub-Api-Version: 2022-11-28"
 
 curl -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL
 
+# test new agent with jq installed
