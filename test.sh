@@ -24,7 +24,7 @@ COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq -r '.html_url'`
 MARKDOWN_LINE="| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | [View Changes](${COMMIT_CHANGES_URL}) |"
 
 
-git --version
+git status
 
 
 
