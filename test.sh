@@ -21,7 +21,7 @@ COMMIT_CURL_RESPONSE=$(curl -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $COMMIT
 
 COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq '.html_url'`
 
-MARKDOWN="| {$NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | ${COMMIT_CHANGES_URL} |"
+MARKDOWN="| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | ${COMMIT_CHANGES_URL} |"
 
 echo $MARKDOWN
 # test new agent with jq installed
