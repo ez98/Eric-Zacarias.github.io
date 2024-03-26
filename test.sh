@@ -28,4 +28,6 @@ echo -e $MARKDOWN_LINE >> /home/jenkins/workspace/github-test/README.md
 
 cat /home/jenkins/workspace/github-test/README.md
 
+git status
+
 # update README.md
