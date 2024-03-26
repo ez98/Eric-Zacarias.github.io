@@ -32,11 +32,8 @@ cat /home/jenkins/workspace/github-test/README.md
 # git config --global user.email "ericzacarias80@gmail.com"
 # git config --global user.name "ez98"
 
-echo $GIT_PAT
 
 # git remote set-url origin git@github.com:ez98/Eric-Zacarias.github.io.git
-git remote set-url origin https://ez98:${GIT_PAT}@github.com/ez98/Eric-Zacarias.github.io.git
-git checkout -b main
 git add README.md
 git commit -m "add readme"
 git push origin main
