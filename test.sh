@@ -10,11 +10,11 @@ HEADER3="X-GitHub-Api-Version: 2022-11-28"
 RESPONSE=$(curl --silent -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
 COMMIT=`echo $RESPONSE | jq '.[0].commit'`
 
-NAME=`echo $COMMIT | jq '.author.name'`
-EMAIL=`echo $COMMIT | jq '.author.email'`
-DATE=`echo $COMMIT | jq '.author.date'`
-DATE=`echo $DATE | jq 'strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y-%m-%d")'`
-MESSAGE=`echo $COMMIT | jq '.message'`
+NAME=`echo $COMMIT | jq -r '.author.name'`
+EMAIL=`echo $COMMIT | jq -r '.author.email'`
+DATE=`echo $COMMIT | jq -r '.author.date'`
+DATE=`echo $DATE | jq -r 'strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y-%m-%d")'`
+MESSAGE=`echo $COMMIT | jq -r '.message'`
 
 COMMIT_API_URL=`echo $COMMIT | jq -r '.url'`
 COMMIT_CURL_RESPONSE=$(curl -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $COMMIT_API_URL)
