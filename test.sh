@@ -21,11 +21,11 @@ COMMIT_CURL_RESPONSE=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $COM
 
 COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq -r '.html_url'`
 
-MARKDOWN_LINE="| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | [View Changes](${COMMIT_CHANGES_URL}) |"
+MARKDOWN_LINE="\n| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | [View Changes](${COMMIT_CHANGES_URL}) |"
 
 
-git status
+echo -e $MARKDOWN_LINE >> /home/jenkins/workspace/github-test/README.md
 
-
+cat /home/jenkins/workspace/github-test/README.md
 
 # update README.md
