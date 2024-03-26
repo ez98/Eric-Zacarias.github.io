@@ -8,18 +8,6 @@ pipeline {
         pollSCM 'H/5 * * * *'
     }
     stages {
-        stage('Clone repository') {
-            steps {
-                checkout([$class: 'GitSCM', 
-                         branches: [[name: '*/main']], 
-                         userRemoteConfigs: [[url: 'git@github.com:ez98/Eric-Zacarias.github.io.git']]])
-                sh """
-                ls
-                pwd
-                """
-            }
-        }
-
         stage('Build') {
             steps{
                 echo "====Checking For Changes===="
