@@ -19,15 +19,22 @@ pipeline {
                     git config --global user.password "${GIT_PASSWORD}"
                     git config --global user.email "ericzacarias80@gmail.com"
                     '''
+                    withCredentials([string(credentialsId: 'API_TOKEN', variable: 'TOKEN')])
+                    {
+                        sh '''
+                            chmod +x /home/jenkins/workspace/github-test/test.sh
+                            /home/jenkins/workspace/github-test/test.sh $TOKEN $GIT_PASSWORD
+                        '''
+                    }
                 }
 
-                withCredentials([string(credentialsId: 'API_TOKEN', variable: 'TOKEN')])
-                {
-                    sh '''
-                        chmod +x /home/jenkins/workspace/github-test/test.sh
-                        /home/jenkins/workspace/github-test/test.sh $TOKEN
-                    '''
-                }
+                // withCredentials([string(credentialsId: 'API_TOKEN', variable: 'TOKEN')])
+                // {
+                //     sh '''
+                //         chmod +x /home/jenkins/workspace/github-test/test.sh
+                //         /home/jenkins/workspace/github-test/test.sh $TOKENcan 
+                //     '''
+                // }
 
 
             }

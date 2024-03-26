@@ -1,6 +1,7 @@
 #!/bin/bash
 
 API_TOKEN=$1
+GIT_PAT=$2
 MARKDOWN=`cat /home/jenkins/workspace/github-test/README.md`
 URL="https://api.github.com/repos/ez98/Eric-Zacarias.github.io/commits"
 HEADER1="Accept: application/vnd.github+json"
@@ -31,8 +32,10 @@ cat /home/jenkins/workspace/github-test/README.md
 # git config --global user.email "ericzacarias80@gmail.com"
 # git config --global user.name "ez98"
 
+echo $GIT_PAT
+
 # git remote set-url origin git@github.com:ez98/Eric-Zacarias.github.io.git
-git add README.md
-git commit -m "add readme"
-git push origin HEAD:Eric-Zacarias.github.io
+# git add README.md
+# git commit -m "add readme"
+# git push origin HEAD:Eric-Zacarias.github.io
 # update README.md
