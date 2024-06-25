@@ -11,11 +11,13 @@ RESPONSE=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
 # COMMITS_LIST=$(echo $RESPONSE | jq '[.[].parents[].url]')
 readarray -t LST <<< "$(echo $RESPONSE | jq '[.[].parents[].url]')"
 
+first="${LST[0]}"
+echo "FIRST ELEMENT: $first"
 
-for COMMIT in "${LST[@]}"; do
-    echo $COMMIT
-    echo "next"
-done
+# for COMMIT in "${LST[@]}"; do
+#     echo $COMMIT
+#     echo "next"
+# done
 
 # COMMIT_URL_RESPONSE=`curl -s ${COMMIT_URL}`
 
