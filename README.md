@@ -21,3 +21,4 @@ Changelog (Automated Via Jenkins)
 | ez98 | ericzacarias80@gmail.com | 2024-03-27 | add readme | [View Changes](https://github.com/ez98/Eric-Zacarias.github.io/commit/dd35b0d606d7d41840a284c017b926d955def1d2) |
 | ez98 | ericzacarias80@gmail.com | 2024-03-27 | add readme | [View Changes](https://github.com/ez98/Eric-Zacarias.github.io/commit/59215558f1133d7b30574dee41c30079493dda26) |
 | ez98 | ericzacarias80@gmail.com | 2024-03-27 | add readme | [View Changes](https://github.com/ez98/Eric-Zacarias.github.io/commit/cecc0f99cc10d138e48b4c2b6e16b211ad26f7a2) |
+| ezh98 | ericzacarias80@gmail.com | 2024-06-25 | Merge branch 'main' of https://github.com/ez98/Eric-Zacarias.github.io | [View Changes](https://github.com/ez98/Eric-Zacarias.github.io/commit/9169b00b5c0a23e2b0c4d926de6b5d4f356cb7de) |
