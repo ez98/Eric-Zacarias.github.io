@@ -8,13 +8,11 @@ HEADER2="Authorization: Bearer $API_TOKEN"
 HEADER3="X-GitHub-Api-Version: 2022-11-28"
 
 RESPONSE=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
-# COMMIT_URL=$(echo $RESPONSE | jq -r '.[0].parents.[0].url')
-COMMIT_URL=$(echo $RESPONSE | jq -r '.[0].parents.[0]')
+COMMIT_URL=$(echo $RESPONSE | jq -r '.[0].parents.[0].url')
 echo "THIS IS THE COMMIT_URL: ${COMMIT_URL}" 
 
 COMMIT_URL_RESPONSE=$(curl -s "https://api.github.com/repos/ez98/Eric-Zacarias.github.io/commits/0f41cf767b8220fb3fb96b1144377215ce068857")
 
-jq --version
 # COMMIT=`echo $RESPONSE | jq '.[0].commit'`
 
 # NAME=`echo $COMMIT | jq -r '.author.name'`
