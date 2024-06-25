@@ -12,6 +12,7 @@ COMMITS_LIST=$(echo $RESPONSE | jq '[.[].parents[].url]')
 
 for COMMIT in $COMMITS_LIST[@]; do
     echo $COMMIT
+    echo "next"
 done
 
 # COMMIT_URL_RESPONSE=`curl -s ${COMMIT_URL}`
