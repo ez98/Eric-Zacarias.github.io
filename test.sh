@@ -8,6 +8,7 @@ HEADER2="Authorization: Bearer $API_TOKEN"
 HEADER3="X-GitHub-Api-Version: 2022-11-28"
 
 RESPONSE=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
+echo $RESPONSE
 COMMIT_URL=$(echo $RESPONSE | jq -r '.[0].parents.[0].url')
 echo "THIS IS THE COMMIT_URL: ${COMMIT_URL}" 
 
