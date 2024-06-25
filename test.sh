@@ -10,7 +10,7 @@ HEADER3="X-GitHub-Api-Version: 2022-11-28"
 RESPONSE=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
 COMMITS_LIST=$(echo $RESPONSE | jq '[.[].parents[].url]')
 
-for COMMIT in $COMMITS_LIST; do
+for COMMIT in $COMMITS_LIST[@]; do
     echo $COMMIT
 done
 
