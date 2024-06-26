@@ -7,14 +7,16 @@ HEADER1="Accept: application/vnd.github+json"
 HEADER2="Authorization: Bearer $API_TOKEN"
 HEADER3="X-GitHub-Api-Version: 2022-11-28"
 
-RESPONSE=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
-COMMITS_LIST=`echo $RESPONSE | jq '.[].parents[].url'`
-# LIST_LENGTH=`echo $COMMITS_LIST | jq 'length'`
+response=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
+commits_lst=`echo $response | jq '[.[].parents[].url']`
 
-echo $COMMITS_LIST | while read -r commit; 
+max=`echo $commits_lst | jq 'length'`
+for ((i=0; i < max; i++ ));
 do
-    echo "do something with $commit"
+    echo $commits_lst | jq -r --arg i "$i" '.[$i]'
 done
+
+# LIST_LENGTH=`echo $COMMITS_LIST | jq 'length'`
 
 # for COMMIT in "${LST[@]}"; do
 #     echo $COMMIT
