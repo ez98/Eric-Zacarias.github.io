@@ -8,13 +8,24 @@ HEADER2="Authorization: Bearer $API_TOKEN"
 HEADER3="X-GitHub-Api-Version: 2022-11-28"
 
 response=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
-commits_lst=`echo $response | jq '[.[].parents[].url']`
-echo $commits_lst
-max=`echo $commits_lst | jq 'length'`
-for ((i=0; i < max; i++ ));
-do
-    echo $commits_lst | jq -r --arg i $i '.[$i|tonumber]'
-done
+
+echo $response
+# commits_lst=`echo $response | jq '[.[].parents[].url']`
+
+# max=`echo $commits_lst | jq 'length'`
+# for ((i=0; i < max; i++ ));
+# do
+#     commit_url=`echo $commits_lst | jq --arg i $i '.[$i|tonumber]'`
+#     filename=`curl -s ${commit_url} | jq '.files[].filename'`
+#     if [ $filename != "README.md" ] && [ ! -z $filename ]; then
+#         commit_metadata=`curl -s ${commit_url}`
+#         name=`echo $commit_metadata | jq -r '.commit.committer.name'`
+#         email=`echo $commit_metadata | jq -r '.commit.committer.email'`
+#         date=`echo $commit_metadata | jq -r '.commit.committer.date | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%m-%d-%Y")'`
+#         message=`echo $commit_metadata | jq -r '.commit.message'`
+#         url=`echo $commit_metadata | jq -r '.html_url'`
+#     fi
+# done
 
 # LIST_LENGTH=`echo $COMMITS_LIST | jq 'length'`
 
