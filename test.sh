@@ -8,11 +8,14 @@ HEADER2="Authorization: Bearer $API_TOKEN"
 HEADER3="X-GitHub-Api-Version: 2022-11-28"
 
 response=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
+
+#Retrieve commits from current day only
 date=$(date '+%Y-%m-%d')
-commits_lst=`echo $response | jq -r --arg DATE "$date" '.[] | select(.commit.author.date|startswith($DATE))'`
+commits_today=`echo $response | jq -r --arg DATE "$date" '[.[] | select(.commit.author.date|startswith($DATE))]'`
+
+commits_lst=`echo $commits_today | jq '[.[].parents[].url']`
 
 echo $commits_lst
-# commits_lst=`echo $response | jq '[.[].parents[].url']`
 
 # max=`echo $commits_lst | jq 'length'`
 # for ((i=0; i < max; i++ ));
