@@ -9,7 +9,7 @@ HEADER3="X-GitHub-Api-Version: 2022-11-28"
 
 response=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
 commits_lst=`echo $response | jq '[.[].parents[].url']`
-
+echo $commits_lst
 max=`echo $commits_lst | jq 'length'`
 for ((i=0; i < max; i++ ));
 do
