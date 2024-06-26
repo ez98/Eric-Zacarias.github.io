@@ -13,7 +13,7 @@ commits_lst=`echo $response | jq '[.[].parents[].url']`
 max=`echo $commits_lst | jq 'length'`
 for ((i=0; i < max; i++ ));
 do
-    echo $commits_lst | jq -r --arg i $i '.[$i]'
+    echo $commits_lst | jq -r --arg i $i '.[$i|tonumber]'
 done
 
 # LIST_LENGTH=`echo $COMMITS_LIST | jq 'length'`
