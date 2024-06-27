@@ -17,14 +17,14 @@ commits_lst=`echo $commits_today | jq '[.[].parents[].url']`
 cat /home/jenkins/workspace/github-test/README.md
 
 max=`echo $commits_lst | jq 'length'`
-echo "max is $max"
+echo max is ${max}
 if [[ $max != 0 ]]; then
-    echo "inside first if"
+    echo inside first if
     for ((i=0; i < max; i++ ));
     do
     commit_url=`echo $commits_lst | jq --arg i $i '.[$i|tonumber]'`
     filename=`curl -s ${commit_url} | jq '.files[].filename'`
-    echo "filename is $filename"
+    echo filename is ${filename}
     if [ "$filename" != "README.md" ] && [ ! -z "$filename" ]; then
         echo "inside second if"
         commit_metadata=`curl -s ${commit_url}`
