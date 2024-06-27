@@ -17,7 +17,7 @@ commits_lst=`echo $commits_today | jq '[.[].parents[].url']`
 cat /home/jenkins/workspace/github-test/README.md
 
 max=`echo $commits_lst | jq 'length'`
-if [ $max != 0 ]; then
+if [[ $max != 0 ]]; then
     for ((i=0; i < max; i++ ));
     do
     commit_url=`echo $commits_lst | jq --arg i $i '.[$i|tonumber]'`
