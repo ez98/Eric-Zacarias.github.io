@@ -34,7 +34,7 @@ if [[ $max != 0 ]]; then
     fi
     done
 
-    git pull
+    git pull origin main
     git add README.md
     git commit -m "add readme"
     git push origin main    
