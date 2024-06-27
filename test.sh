@@ -15,6 +15,7 @@ commits_today=`echo $response | jq -r --arg DATE "$date" '[.[] | select(.commit.
 
 commits_lst=`echo $commits_today | jq '[.[].parents[].url']`
 
+
 echo $commits_lst
 
 
