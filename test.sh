@@ -22,8 +22,8 @@ if [[ $max != 0 ]]; then
     echo inside first if
     for ((i=0; i < max; i++ ));
     do
-    commit_url=`echo $commits_lst | jq --arg i $i '.[$i|tonumber]'`
-    filename=$(curl -s $commit_url)
+    commit_url=`echo $commits_lst | jq -r --arg i $i '.[$i|tonumber]'`
+    filename=`curl -s "$commit_url"`
     echo ${filename}
     echo filename is ${filename} ${commit_url}
     if [ "$filename" != "README.md" ] && [ ! -z "$filename" ]; then
