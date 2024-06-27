@@ -15,38 +15,27 @@ commits_today=`echo $response | jq -r --arg DATE "$date" '[.[] | select(.commit.
 
 commits_lst=`echo $commits_today | jq '[.[].parents[].url']`
 
-echo $commits_lst
 
+max=`echo $commits_lst | jq 'length'`
+if [ $max != 0 ]; then
+    for ((i=0; i < max; i++ ));
+    do
+    commit_url=`echo $commits_lst | jq --arg i $i '.[$i|tonumber]'`
+    filename=`curl -s ${commit_url} | jq '.files[].filename'`
+    if [ $filename != "README.md" ] && [ ! -z $filename ]; then
+        commit_metadata=`curl -s ${commit_url}`
+        name=`echo $commit_metadata | jq -r '.commit.committer.name'`
+        email=`echo $commit_metadata | jq -r '.commit.committer.email'`
+        date=`echo $commit_metadata | jq -r '.commit.committer.date | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%m-%d-%Y")'`
+        message=`echo $commit_metadata | jq -r '.commit.message'`
+        url=`echo $commit_metadata | jq -r '.html_url'`
+        MARKDOWN_LINE="| ${name} | ${email} | ${date} | ${message} | [View Changes](${url}) |"
+        echo -e $MARKDOWN_LINE >> /home/jenkins/workspace/github-test/README.md
+    fi
+    done
+fi
 
-
-# max=`echo $commits_lst | jq 'length'`
-# for ((i=0; i < max; i++ ));
-# do
-#     commit_url=`echo $commits_lst | jq --arg i $i '.[$i|tonumber]'`
-#     filename=`curl -s ${commit_url} | jq '.files[].filename'`
-#     if [ $filename != "README.md" ] && [ ! -z $filename ]; then
-#         commit_metadata=`curl -s ${commit_url}`
-#         name=`echo $commit_metadata | jq -r '.commit.committer.name'`
-#         email=`echo $commit_metadata | jq -r '.commit.committer.email'`
-#         date=`echo $commit_metadata | jq -r '.commit.committer.date | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%m-%d-%Y")'`
-#         message=`echo $commit_metadata | jq -r '.commit.message'`
-#         url=`echo $commit_metadata | jq -r '.html_url'`
-#     fi
-# done
-
-# LIST_LENGTH=`echo $COMMITS_LIST | jq 'length'`
-
-# for COMMIT in "${LST[@]}"; do
-#     echo $COMMIT
-#     echo "next"
-# done
-
-# COMMIT_URL_RESPONSE=`curl -s ${COMMIT_URL}`
-
-# FILENAME=$(echo $COMMIT_URL_RESPONSE | jq '.files[0].filename ')
-
-# if [ $FILENAME != "README.md" ]; then
-
+cat /home/jenkins/workspace/github-test/README.md
 # COMMIT=`echo $RESPONSE | jq '.[0].commit'`
 
 # NAME=`echo $COMMIT | jq -r '.author.name'`
@@ -60,7 +49,6 @@ echo $commits_lst
 
 # COMMIT_CHANGES_URL=`echo $COMMIT_CURL_RESPONSE | jq -r '.html_url'`
 
-# MARKDOWN_LINE="| ${NAME} | ${EMAIL} | ${DATE} | ${MESSAGE} | [View Changes](${COMMIT_CHANGES_URL}) |"
 
 
 # echo -e $MARKDOWN_LINE >> /home/jenkins/workspace/github-test/README.md
