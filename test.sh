@@ -23,7 +23,7 @@ if [[ $max != 0 ]]; then
     for ((i=0; i < max; i++ ));
     do
     commit_url=`echo $commits_lst | jq -r --arg i $i '.[$i|tonumber]'`
-    filename=`curl -s "$commit_url"`
+    filename=`curl -s "$commit_url" | jq '.files[].filename'`
     echo ${filename}
     echo filename is ${filename} ${commit_url}
     if [ "$filename" != "README.md" ] && [ ! -z "$filename" ]; then
