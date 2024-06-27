@@ -33,7 +33,8 @@ if [[ $max != 0 ]]; then
         echo -e $MARKDOWN_LINE >> /home/jenkins/workspace/github-test/README.md
     fi
     done
-    
+
+    git pull
     git add README.md
     git commit -m "add readme"
     git push origin main    
