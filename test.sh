@@ -14,7 +14,7 @@ date=$(date '+%Y-%m-%d')
 commits_today=`echo $response | jq -r --arg DATE "$date" '[.[] | select(.commit.author.date|startswith($DATE))]'`
 
 commits_lst=`echo $commits_today | jq '[.[].parents[].url']`
-
+cat /home/jenkins/workspace/github-test/README.md
 
 max=`echo $commits_lst | jq 'length'`
 if [ $max != 0 ]; then
@@ -22,7 +22,7 @@ if [ $max != 0 ]; then
     do
     commit_url=`echo $commits_lst | jq --arg i $i '.[$i|tonumber]'`
     filename=`curl -s ${commit_url} | jq '.files[].filename'`
-    if [ $filename != "README.md" ] && [ ! -z $filename ]; then
+    if [ "$filename" != "README.md" ] && [ ! -z "$filename" ]; then
         commit_metadata=`curl -s ${commit_url}`
         name=`echo $commit_metadata | jq -r '.commit.committer.name'`
         email=`echo $commit_metadata | jq -r '.commit.committer.email'`
