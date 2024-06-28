@@ -19,6 +19,7 @@ max=`echo $commits_lst | jq 'length'`
 echo max is ${max}
 if [[ $max != 0 ]]; then
     for ((i=0; i < max; i++ ));
+    #check variable i
     do
     commit_url=`echo $commits_lst | jq -r --arg i $i '.[$i|tonumber]'`
     filename=`curl -s "$commit_url" | jq '.files[].filename'`
@@ -34,10 +35,9 @@ if [[ $max != 0 ]]; then
     fi
     done
 
-    git pull origin main
-    git add README.md
-    git commit -m "add readme"
-    git push origin main    
+    # git add README.md
+    # git commit -m "add readme"
+    # git push origin main    
 fi
 
 
