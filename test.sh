@@ -11,7 +11,7 @@ response=$(curl -s -L -H "$HEADER1" -H "$HEADER2" -H "$HEADER3" $URL)
 
 #Retrieve commits from current day only
 date=$(date '+%Y-%m-%d')
-commits_today=`echo $response | jq -r --arg DATE "$date" '[.[] | select(.commit.author.date|startswith($DATE))]'`
+commits_today=`echo $response | jq -r --arg DATE "$date" '[.[] | select(.commit.author.date|contains($DATE))]'`
 echo $response
 commits_lst=`echo $commits_today | jq '[.[].parents[].url']`
 
