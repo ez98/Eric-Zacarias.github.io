@@ -23,8 +23,7 @@ if [[ $max != 0 ]]; then
     do
     echo i is ${i}
     commit_url=`echo $commits_lst | jq -r --arg i $i '.[$i|tonumber]'`
-    echo commit_url is
-    echo $commit_url | jq '.'
+    echo commit_url is ${commit_url}
     filename=`curl -s "$commit_url" | jq '.files[].filename'`
     if [ "$filename" != "README.md" ] && [ ! -z "$filename" ]; then
         echo inside second if
@@ -38,7 +37,7 @@ if [[ $max != 0 ]]; then
         echo -e $MARKDOWN_LINE >> /home/jenkins/workspace/github-test/README.md
     fi
     done
-
+    cat /home/jenkins/workspace/github-test/README.md
     # git add README.md
     # git commit -m "add readme"
     # git push origin main    
