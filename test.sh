@@ -21,6 +21,7 @@ if [[ $max != 0 ]]; then
     for ((i=0; i < max; i++ ));
     #check variable i
     do
+    
     echo i is ${i}
     commit_url=`echo $commits_lst | jq -r --arg i $i '.[$i|tonumber]'`
     echo commit_url is ${commit_url}

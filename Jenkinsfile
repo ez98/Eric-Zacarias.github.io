@@ -34,7 +34,6 @@ pipeline {
                 }
             }
         }
-
         stage('Deliver') {
             steps {
                 echo "====Pushing changelog to Github REPO===="
