@@ -21,9 +21,13 @@ if [[ $max != 0 ]]; then
     for ((i=0; i < max; i++ ));
     #check variable i
     do
+    echo i is ${i}
     commit_url=`echo $commits_lst | jq -r --arg i $i '.[$i|tonumber]'`
+    echo commit_url is
+    echo ${commit_url} | jq '.'
     filename=`curl -s "$commit_url" | jq '.files[].filename'`
     if [ "$filename" != "README.md" ] && [ ! -z "$filename" ]; then
+        echo inside second if
         commit_metadata=`curl -s ${commit_url}`
         name=`echo $commit_metadata | jq -r '.commit.committer.name'`
         email=`echo $commit_metadata | jq -r '.commit.committer.email'`
