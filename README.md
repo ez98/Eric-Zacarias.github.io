@@ -1,4 +1,4 @@
-Check it out! https://www.ericzacarias.tech/
+Check it out! https://ez98.github.io/Eric-Zacarias.github.io
 
 
 Changelog (Automated Via Jenkins)
